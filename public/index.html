@@ -15,7 +15,39 @@
 <body>
   <div>
     <h2>@luzhongk/upload</h2>
-    <div>测试</div>
+    <button class="button1">获取单个文件</button>
+    <button class="button2">获取多个文件</button>
+    <button class="button3">获取文件md5</button>
+    <button class="button4">上传文件</button>
   </div>
+  <script src="./js-upload.js"></script>
+  <script>
+    console.log('jsUpload', jsUpload)
+
+    document.querySelector('.button1').onclick = async () => {
+      const file = await jsUpload.getFile()
+      console.log(file)
+    }
+
+    document.querySelector('.button2').onclick = async () => {
+      const files = await jsUpload.getFiles()
+      console.log(files)
+    }
+
+    document.querySelector('.button3').onclick = async() => {
+      const file = await jsUpload.getFile()
+      const md5 = await jsUpload.getFileMD5(file)
+      console.log('文件md5', md5)
+    }
+
+    document.querySelector('.button4').onclick = async() => {
+      const file = await jsUpload.getFile()
+      const d = new FormData()
+      d.append('file', file)
+      const res = await jsUpload.upload({url: '//upload.qiniu.com', data: d})
+      console.log(res)
+    }
+    
+  </script>
 </body>
 </html>
