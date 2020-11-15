@@ -12,4 +12,8 @@ export declare function getFiles(option?: GetFileOptions): Promise<FileList>;
  * @param o {GetFileOptions}
  */
 export declare function getFile(o: GetFileOptions): Promise<File>;
+/**
+ * 获取拖拽的文件
+ */
+export declare function getDropFile(e: DragEvent): FileList | undefined;
 export {};

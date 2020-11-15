@@ -10,6 +10,15 @@
       margin: 0 auto;
       text-align: center;
     }
+    .drop-container {
+      width: 300px;
+      height: 300px;
+      margin: 50px auto;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
@@ -19,6 +28,8 @@
     <button class="button2">获取多个文件</button>
     <button class="button3">获取文件md5</button>
     <button class="button4">上传文件</button>
+
+    <div class="drop-container">拖拽上传</div>
   </div>
   <script src="./js-upload.js"></script>
   <script>
@@ -47,7 +58,19 @@
       const res = await jsUpload.upload({url: '//upload.qiniu.com', data: d})
       console.log(res)
     }
-    
+
+    document.querySelector('.drop-container').ondragover = (e) => {
+      e.preventDefault()
+    }
+    document.querySelector('.drop-container').ondrop = async (e) => {
+      const files = jsUpload.getDropFile(e)
+      if(!files) return
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        const md5 = await jsUpload.getFileMD5(file)
+        alert(`文件md5：${md5}`)
+      }
+    }
   </script>
 </body>
 </html>
