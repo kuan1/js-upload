@@ -1,4 +1,4 @@
-import { createObjectURL, getTransform } from './utils'
+import { createObjectURL } from './utils'
 
 export interface CompressOptions {
   quality?: number
@@ -108,8 +108,7 @@ class Compress {
   }
 
   getCanvas(img: HTMLImageElement): Promise<HTMLCanvasElement> {
-    const orientation = 1
-    const { width, height, matrix } = getTransform(img, orientation)
+    const { width, height } = img
     const canvas = document.createElement('canvas')
     const context = canvas.getContext('2d')
     canvas.width = width
@@ -118,7 +117,6 @@ class Compress {
       return Promise.reject(new Error('context is null'))
     }
     this.clear(context, width, height)
-    context.transform(...matrix)
     context.drawImage(img, 0, 0)
     return Promise.resolve(canvas)
   }

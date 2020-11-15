@@ -2,10 +2,9 @@
   "name": "@luzhongk/upload",
   "version": "1.0.0",
   "description": "js上传工具类",
-  "main": "index.js",
-  "private": true,
+  "main": "lib/index.js",
   "scripts": {
-    "dev": "rimraf lib && NODE_ENV=development rollup --config --watch",
+    "dev": "NODE_ENV=development rollup --config --watch",
     "build": "rimraf lib && NODE_ENV=production rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -37,7 +37,7 @@ if (!isDev) {
   config.output = [
     {
       file: 'lib/index.js',
-      format: 'es',
+      format: 'esm',
     },
     {
       file: `lib/js-upload.${version}js`,
