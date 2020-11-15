@@ -50,7 +50,7 @@ export async function getFile(o: GetFileOptions): Promise<File> {
 /**
  * 获取拖拽的文件
  */
-export function getDropFile(e: DragEvent) {
+export function getDropFiles(e: DragEvent) {
   e.preventDefault()
   return e.dataTransfer?.files
 }

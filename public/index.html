@@ -63,7 +63,7 @@
       e.preventDefault()
     }
     document.querySelector('.drop-container').ondrop = async (e) => {
-      const files = jsUpload.getDropFile(e)
+      const files = jsUpload.getDropFiles(e)
       if(!files) return
       for (let i = 0; i < files.length; i++) {
         const file = files[i]
