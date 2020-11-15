@@ -1,0 +1,49 @@
+{
+  "name": "@luzhongk/upload",
+  "version": "1.0.0",
+  "description": "js上传工具类",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "rimraf lib && NODE_ENV=development rollup --config --watch",
+    "build": "rimraf lib && NODE_ENV=production rollup --config",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-html": "^0.2.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "eslint": "^7.4.0",
+    "eslint-plugin-html": "^6.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.21.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "typescript": "^3.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuan1/js-upload.git"
+  },
+  "keywords": [
+    "upload",
+    "utils"
+  ],
+  "author": "kuan1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuan1/js-upload/issues"
+  },
+  "homepage": "https://github.com/kuan1/js-upload#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
