@@ -6,11 +6,7 @@ import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import alias from '@rollup/plugin-alias'
 
-const pkg = require('./package.json')
-
 const isDev = process.env.NODE_ENV === 'development'
-
-const version = isDev ? '' : `${pkg.version}.`
 
 const config = {
   input: 'src/index.ts',
@@ -40,7 +36,7 @@ if (!isDev) {
       format: 'esm',
     },
     {
-      file: `lib/js-upload.${version}js`,
+      file: `lib/js-upload.js`,
       format: 'iife',
       name: 'jsUpload',
     },
