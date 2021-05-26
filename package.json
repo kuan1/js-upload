@@ -45,6 +45,7 @@
   },
   "homepage": "https://github.com/kuan1/js-upload#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
