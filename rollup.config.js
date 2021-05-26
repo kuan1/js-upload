@@ -42,7 +42,7 @@ if (!isDev) {
     {
       file: `lib/js-upload.${version}js`,
       format: 'iife',
-      name: 'haloMonitor',
+      name: 'jsUpload',
     },
   ]
   config.plugins.push(terser())
