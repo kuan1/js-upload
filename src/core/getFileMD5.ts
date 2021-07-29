@@ -22,6 +22,7 @@ export default function getFileMD5(file: File, processFn: (percent: string) => v
       const result = e.target?.result
       if (!result) return reject(new Error('浏览器不支持FileReader'))
       //数据加载完毕事件
+      spark.append(result as ArrayBuffer)
       currentChunk++
       if (processFn) {
         processFn(`${Math.ceil((currentChunk / chunks) * 100)}%`)
