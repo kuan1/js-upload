@@ -1,16 +1,15 @@
 import SparkMD5 from 'spark-md5'
 
-interface FP {
+interface EnhanceFile extends File {
   mozSlice?: (start?: number | undefined, end?: number | undefined, contentType?: string | undefined) => Blob
   webkitSlice?: (start?: number | undefined, end?: number | undefined, contentType?: string | undefined) => Blob
-  [x: string]: any
 }
 
 export default function getFileMD5(file: File, processFn: (percent: string) => void | undefined) {
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader() //分块读取文件对象
     // file的slice方法，注意它的兼容性，在不同浏览器的写法不同
-    const p: FP = File.prototype
+    const p: EnhanceFile = File.prototype
     const blobSlice = p.slice || p.mozSlice || p.webkitSlice
 
     const spark = new SparkMD5.ArrayBuffer() //获取MD5对象
